@@ -1,0 +1,93 @@
+.form {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.fieldWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8d929a;
+}
+
+.input,
+.select {
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background: #f7f7f7;
+
+  padding: 0 16px;
+
+  font-size: 16px;
+  color: #101828;
+}
+
+.brand {
+  width: 204px;
+}
+
+.price {
+  width: 196px;
+}
+
+.mileageWrapper {
+  display: flex;
+  align-items: center;
+
+  background: #f7f7f7;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mileageInput {
+  width: 160px;
+  height: 44px;
+
+  border: none;
+  background: transparent;
+
+  padding: 0 16px;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: #dadde1;
+}
+
+.button {
+  width: 156px;
+  height: 44px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #3470ff;
+  color: white;
+
+  font-weight: 600;
+
+  transition: background 250ms ease;
+}
+
+.button:hover {
+  background: #0b44cd;
+}
+
+.clearButton {
+  margin-top: 8px;
+
+  border: none;
+  background: transparent;
+
+  color: #8d929a;
+
+  font-size: 14px;
+}

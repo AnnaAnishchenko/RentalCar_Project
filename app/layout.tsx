@@ -4,9 +4,11 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 
 import "modern-normalize";
-
 import "./globals.css";
+
 import Header from "../components/Header/Header";
+
+import QueryProvider from "../providers/QueryProvider";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -35,9 +37,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${manrope.variable}`}>
-        <Header />
+        <QueryProvider>
+          <Header />
 
-        <main>{children}</main>
+          <main>{children}</main>
+        </QueryProvider>
       </body>
     </html>
   );
