@@ -1,0 +1,48 @@
+/* Header.module.css */
+
+.header {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 24px 120px;
+
+  border-bottom: 1px solid var(--badges);
+
+  background: var(--white);
+}
+.logo {
+  display: flex;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+
+  font-family: var(--font-family);
+  font-weight: var(--fw-medium);
+  font-size: var(--fz-16);
+  line-height: 1.25;
+  text-align: center;
+  color: var(--main);
+}
+
+.link {
+  transition: color 250ms ease;
+}
+.link:hover {
+  color: var(--light-blue);
+}
