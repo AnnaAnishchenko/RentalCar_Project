@@ -1,4 +1,4 @@
-// //catalog/page.tsx
+//catalog/page.tsx
 
 import CatalogClient from "@/components/CatalogClient/CatalogClient";
 import { getFilters } from "@/lib/api";

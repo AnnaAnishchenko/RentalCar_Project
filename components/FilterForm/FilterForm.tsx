@@ -14,7 +14,15 @@ export interface FilterFormValues {
 
 type FilterFormProps = {
   brands: string[];
+
+  priceRange: {
+    min: number;
+    max: number;
+  };
+
   onSubmit: (values: FilterFormValues) => void;
+
+  onClearFilters: () => void;
 };
 
 const initialValues: FilterFormValues = {
@@ -24,9 +32,19 @@ const initialValues: FilterFormValues = {
   maxMileage: "",
 };
 
-const prices = ["30", "40", "50", "60", "70", "80", "90", "100"];
+// const prices = ["30", "40", "50", "60", "70", "80", "90", "100"];
 
-export default function FilterForm({ brands, onSubmit }: FilterFormProps) {
+export default function FilterForm({
+  brands,
+  priceRange,
+  onSubmit,
+  onClearFilters,
+}: FilterFormProps) {
+  const prices = [];
+  for (let i = priceRange.min; i <= priceRange.max; i += 10) {
+    prices.push(i);
+  }
+
   const handleSubmit = (
     values: FilterFormValues,
     actions: FormikHelpers<FilterFormValues>,
@@ -45,12 +63,7 @@ export default function FilterForm({ brands, onSubmit }: FilterFormProps) {
               Car brand
             </label>
 
-            <Field
-              as="select"
-              id="brand"
-              name="brand"
-              className={`${css.select} ${css.brandSelect}`}
-            >
+            <Field as="select" id="brand" name="brand" className={css.select}>
               <option value="">Choose a brand</option>
 
               {brands.map((brand) => (
@@ -70,13 +83,13 @@ export default function FilterForm({ brands, onSubmit }: FilterFormProps) {
               as="select"
               id="rentalPrice"
               name="rentalPrice"
-              className={`${css.select} ${css.priceSelect}`}
+              className={css.select}
             >
               <option value="">Choose a price</option>
 
               {prices.map((price) => (
                 <option key={price} value={price}>
-                  To ${price}
+                  {price}
                 </option>
               ))}
             </Field>
@@ -92,8 +105,6 @@ export default function FilterForm({ brands, onSubmit }: FilterFormProps) {
                 placeholder="From"
                 className={css.mileageInput}
               />
-
-              <div className={css.divider} />
 
               <Field
                 name="maxMileage"
@@ -112,7 +123,11 @@ export default function FilterForm({ brands, onSubmit }: FilterFormProps) {
             <button
               type="button"
               className={css.clearButton}
-              onClick={() => resetForm()}
+              onClick={() => {
+                resetForm();
+
+                onClearFilters();
+              }}
             >
               Clear filters
             </button>

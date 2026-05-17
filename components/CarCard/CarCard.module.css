@@ -1,0 +1,81 @@
+/* component/Car/CarCard.module.css */
+.car {
+  border-radius: 16px;
+  padding: 16px;
+  width: 276px;
+  height: 464px;
+  background: var(--white);
+}
+
+.car_image {
+  border-radius: 14px;
+  width: 244px;
+  height: 268px;
+  margin-bottom: 16px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 0%,
+    rgba(18, 20, 23, 0.5) 100%
+  );
+}
+
+.car_box {
+  width: 244px;
+  height: 80px;
+  margin-bottom: 24px;
+}
+.car_brand {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+}
+.car_model {
+  color: var(--light-blue);
+}
+
+.car_price {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+}
+
+.car_description {
+  border-radius: 8px;
+  padding: 8px;
+  width: 244px;
+  height: 52px;
+  background: var(--bg);
+}
+
+.car_text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--main);
+  width: 228px;
+  padding: 8px;
+}
+
+.button {
+  border-radius: 12px;
+  padding: 12px 99px;
+  width: 244px;
+  height: 44px;
+  background: var(--light-blue);
+  font-family: var(--font-family);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fz-16);
+  line-height: 1.25;
+  color: var(--white);
+
+  margin-top: 40px;
+}
+.button:hover {
+  background: var(--dark-blue);
+}

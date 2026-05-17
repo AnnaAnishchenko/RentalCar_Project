@@ -30,6 +30,6 @@ export type Car = {
 export type CarsResponse = {
   cars: Car[];
   totalCars: number;
-  page: number;
   totalPages: number;
+  currentPage: number;
 };

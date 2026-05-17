@@ -33,7 +33,6 @@ export const getCars = async ({
 }: GetCarsParams = {}): Promise<CarsResponse> => {
   const params: Record<string, string | number> = {
     page: pageParam,
-    limit: 12,
   };
 
   if (brand?.trim()) {
