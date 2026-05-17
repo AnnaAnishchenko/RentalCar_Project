@@ -1,18 +1,23 @@
-/* component/Car/CarCard.module.css */
+/* components/CarCard/CarCard.module.css */
+
 .car {
+  display: flex;
+  flex-direction: column;
+
   border-radius: 16px;
   padding: 16px;
-  width: 276px;
   height: 464px;
   background: var(--white);
 }
 
 .car_image {
   border-radius: 14px;
+
+  object-fit: cover;
+
+  margin-bottom: 16px;
   width: 244px;
   height: 268px;
-  margin-bottom: 16px;
-
   background: linear-gradient(
     180deg,
     rgba(18, 20, 23, 0.5) 0%,
@@ -21,61 +26,72 @@
 }
 
 .car_box {
-  width: 244px;
-  height: 80px;
-  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 8px;
 }
+
 .car_brand {
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 125%;
+  font-size: var(--fz-16);
+  font-weight: var(--fw-medium);
+  line-height: 1.25;
+
   color: var(--main);
 }
+
 .car_model {
-  color: var(--light-blue);
+  color: var(--button);
 }
 
 .car_price {
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 125%;
+  font-size: var(--fz-16);
+  font-weight: var(--fw-medium);
+  line-height: 1.25;
+
   color: var(--main);
 }
 
 .car_description {
+  margin-bottom: 24px;
+  background: var(--bg);
   border-radius: 8px;
   padding: 8px;
   width: 244px;
   height: 52px;
-  background: var(--bg);
 }
 
 .car_text {
-  font-family: var(--font-family);
+  font-size: var(--fz-12);
+  line-height: 1.33;
   font-weight: 400;
-  font-size: 12px;
-  line-height: 133%;
   color: var(--main);
-  width: 228px;
-  padding: 8px;
 }
 
 .button {
-  border-radius: 12px;
-  padding: 12px 99px;
-  width: 244px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
   height: 44px;
-  background: var(--light-blue);
-  font-family: var(--font-family);
-  font-weight: var(--fw-semibold);
+
+  border-radius: 12px;
+
+  background-color: var(--button);
+
   font-size: var(--fz-16);
+  font-weight: var(--fw-semibold);
   line-height: 1.25;
   color: var(--white);
 
-  margin-top: 40px;
+  text-decoration: none;
+
+  transition: background-color 250ms ease;
 }
-.button:hover {
-  background: var(--dark-blue);
+
+.button:hover,
+.button:focus {
+  background-color: var(--button-hover);
 }

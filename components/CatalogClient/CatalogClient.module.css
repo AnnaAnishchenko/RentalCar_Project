@@ -1,0 +1,9 @@
+/* components/CatalogClient/CatalogClient.module.css */
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  background: var(--badges);
+}

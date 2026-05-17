@@ -20,6 +20,7 @@
   --second-family: "Inter", sans-serif;
 
   /* FONT SIZES */
+  --fz-12: 12px;
   --fz-16: 16px;
   --fz-24: 24px;
 
@@ -50,6 +51,8 @@ body {
 }
 
 body {
+  margin: 0;
+
   min-height: 100%;
 
   display: flex;
@@ -75,6 +78,8 @@ body {
 ul,
 ol {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -109,9 +114,16 @@ button {
 
   border: none;
   cursor: pointer;
+  font-family: inherit;
 }
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }

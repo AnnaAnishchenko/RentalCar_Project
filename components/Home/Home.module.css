@@ -34,7 +34,7 @@
   font-family: var(--font-family);
   font-weight: var(--fw-semibold);
   font-size: var(--fz-24);
-  line-height: 1, 33;
+  line-height: 1.33;
   text-align: center;
   color: var(--white);
 }

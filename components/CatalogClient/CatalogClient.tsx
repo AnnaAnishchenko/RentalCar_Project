@@ -2,14 +2,14 @@
 "use client";
 
 import { useState } from "react";
-
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 import FilterForm, { FilterFormValues } from "../FilterForm/FilterForm";
-
 import CarCatalog from "../CarCatalog/CarCatalog";
 
 import { getCars } from "@/lib/api";
+
+import css from "./CatalogClient.module.css";
 
 type CatalogClientProps = {
   brands: string[];
@@ -19,11 +19,7 @@ type CatalogClientProps = {
     max: number;
   };
 };
-
-export default function CatalogClient({
-  brands,
-  priceRange,
-}: CatalogClientProps) {
+const CatalogClient = ({ brands, priceRange }: CatalogClientProps) => {
   const [filters, setFilters] = useState<FilterFormValues>({
     brand: "",
     rentalPrice: "",
@@ -68,7 +64,7 @@ export default function CatalogClient({
   };
 
   return (
-    <>
+    <section className={`${css.catalog} ${css.container}`}>
       <FilterForm
         brands={brands}
         priceRange={priceRange}
@@ -87,6 +83,8 @@ export default function CatalogClient({
           {isFetchingNextPage ? "Loading..." : "Load More"}
         </button>
       )}
-    </>
+    </section>
   );
-}
+};
+
+export default CatalogClient;

@@ -20,25 +20,25 @@ const CarCard = ({ item }: Props) => {
           width={244}
           height={268}
         />
-        <div className={css.car_box}>
-          <div className={css.car_info}>
-            <h2 className={css.car_brand}>
-              {item.brand} <span className={css.car_model}>{item.model}</span>,{" "}
-              {item.year}
-            </h2>
 
-            <p className={css.car_price}>${item.rentalPrice}</p>
+        <div className={css.car_box}>
+          <div className={css.car_brand}>
+            {item.brand} <span className={css.car_model}>{item.model}</span>,{" "}
+            {item.year}
           </div>
+
+          <div className={css.car_price}>${item.rentalPrice}</div>
         </div>
 
         <div className={css.car_description}>
-          <p className={css.car_text}>
-            {" "}
-            {item.location.city} | {item.rentalCompany} |
-          </p>
-          <p className={css.car_text}>
-            {item.type} | {item.mileage} km
-          </p>
+          <div className={css.car_text}>
+            {item.location.city} | {item.location.country} |{" "}
+            {item.rentalCompany}
+          </div>
+
+          <div className={css.car_text}>
+            {item.type} | {item.mileage.toLocaleString()} km
+          </div>
         </div>
 
         <Link

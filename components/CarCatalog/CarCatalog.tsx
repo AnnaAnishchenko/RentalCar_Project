@@ -2,6 +2,7 @@
 
 import CarCard from "../CarCard/CarCard";
 import { Car } from "@/types/car";
+import css from "./CarCatalog.module.css";
 
 type Props = {
   cars: Car[];
@@ -9,11 +10,13 @@ type Props = {
 
 const CarCatalog = ({ cars }: Props) => {
   return (
-    <ul>
-      {cars.map((car) => (
-        <CarCard key={car.id} item={car} />
-      ))}
-    </ul>
+    <div className={css.car_catalog}>
+      <ul className={css.catalog}>
+        {cars.map((car) => (
+          <CarCard key={car.id} item={car} />
+        ))}
+      </ul>
+    </div>
   );
 };
 
