@@ -11,6 +11,7 @@ import {
 import CarDetails from "@/components/CarDetails/CarDetails";
 
 import { getCarById } from "@/lib/api";
+import { Car } from "@/types/car";
 
 type Props = {
   params: Promise<{
@@ -37,7 +38,7 @@ const CarDetailsPage = async ({ params }: Props) => {
     queryFn: () => getCarById(id),
   });
 
-  const car = queryClient.getQueryData(["car", id]);
+  const car = queryClient.getQueryData<Car>(["car", id]);
 
   if (!car) {
     return <p>Car not found</p>;
