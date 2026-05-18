@@ -1,4 +1,3 @@
-//Component/CarDetails/CarDetails.tsx
 import Image from "next/image";
 
 import { Car } from "@/types/car";
@@ -6,6 +5,12 @@ import { Car } from "@/types/car";
 import RentalForm from "../RentalForm/RentalForm";
 
 import css from "./CarDetails.module.css";
+import { FiCheckCircle } from "react-icons/fi";
+import { SlCalender } from "react-icons/sl";
+import { IoCarSportSharp } from "react-icons/io5";
+import { GiGasPump } from "react-icons/gi";
+import { BsGear } from "react-icons/bs";
+import { PiRoadHorizon } from "react-icons/pi";
 
 type Props = {
   item: Car;
@@ -46,7 +51,10 @@ const CarDetails = ({ item }: Props) => {
 
               <ul className={css.list}>
                 {item.rentalConditions.map((condition) => (
-                  <li key={condition}>{condition}</li>
+                  <li key={condition} className={css.list_item}>
+                    <FiCheckCircle className={css.icon} />
+                    {condition}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -54,11 +62,26 @@ const CarDetails = ({ item }: Props) => {
               <h3 className={css.subtitle}>Specifications:</h3>
 
               <ul className={css.list}>
-                <li>Year: {item.year}</li>
-                <li>Type: {item.type}</li>
-                <li>Fuel Consumption: {item.fuelConsumption}</li>
-                <li>Engine: {item.engine}</li>
-                <li>Mileage: {item.mileage}km</li>
+                <li className={css.list_item}>
+                  <SlCalender className={css.icon} />
+                  Year: {item.year}
+                </li>
+                <li className={css.list_item}>
+                  <IoCarSportSharp className={css.icon} />
+                  Type: {item.type}
+                </li>
+                <li className={css.list_item}>
+                  <GiGasPump className={css.icon} />
+                  Fuel Consumption: {item.fuelConsumption}
+                </li>
+                <li className={css.list_item}>
+                  <BsGear className={css.icon} />
+                  Engine: {item.engine}
+                </li>
+                <li className={css.list_item}>
+                  <PiRoadHorizon className={css.icon} />
+                  Mileage: {item.mileage}km
+                </li>
               </ul>
             </div>
           </div>
@@ -68,7 +91,10 @@ const CarDetails = ({ item }: Props) => {
 
             <ul className={css.list}>
               {item.features.map((feature) => (
-                <li key={feature}>{feature}</li>
+                <li key={feature} className={css.list_item}>
+                  <FiCheckCircle className={css.icon} />
+                  {feature}{" "}
+                </li>
               ))}
             </ul>
           </div>

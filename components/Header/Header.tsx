@@ -1,5 +1,3 @@
-// components/Header/Header.tsx
-
 import Logo from "../Logo/Logo";
 import css from "./Header.module.css";
 import Link from "next/link";

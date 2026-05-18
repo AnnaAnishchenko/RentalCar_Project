@@ -1,5 +1,3 @@
-// src/lib/api.ts
-
 import axios from "axios";
 
 import { CarsResponse, Car } from "../types/car";
@@ -53,14 +51,6 @@ export const getCars = async ({
   if (rentalPrice?.trim()) {
     params.price = Number(rentalPrice);
   }
-
-  // if (minMileage?.trim()) {
-  //   params.minMileage = Number(minMileage);
-  // }
-
-  // if (maxMileage?.trim()) {
-  //   params.maxMileage = Number(maxMileage);
-  // }
 
   if (minMileage && !isNaN(Number(minMileage))) {
     params.minMileage = parseInt(minMileage, 10);

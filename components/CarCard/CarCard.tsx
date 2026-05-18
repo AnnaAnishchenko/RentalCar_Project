@@ -1,5 +1,3 @@
-// components/CarCard/CarCard.tsx
-
 import Image from "next/image";
 import Link from "next/link";
 

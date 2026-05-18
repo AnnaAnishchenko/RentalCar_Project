@@ -1,4 +1,3 @@
-//catalog/page.tsx
 import type { Metadata } from "next";
 
 import CatalogClient from "@/components/CatalogClient/CatalogClient";

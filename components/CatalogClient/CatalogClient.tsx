@@ -1,4 +1,3 @@
-// components/CatalogClient/CatalogClient.tsx
 "use client";
 
 import { useState } from "react";

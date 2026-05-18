@@ -1,5 +1,3 @@
-// catalog provider for react-query
-// components/Providers/Providers.tsx
 
 "use client";
 

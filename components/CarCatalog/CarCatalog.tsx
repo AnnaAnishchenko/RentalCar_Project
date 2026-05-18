@@ -1,5 +1,3 @@
-// components/CarCatalog/CarCatalog.tsx
-
 import CarCard from "../CarCard/CarCard";
 import { Car } from "@/types/car";
 import css from "./CarCatalog.module.css";

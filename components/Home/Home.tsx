@@ -1,5 +1,3 @@
-// components/Home/Home.tsx
-
 import css from "./Home.module.css";
 import Link from "next/link";
 

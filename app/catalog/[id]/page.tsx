@@ -1,5 +1,3 @@
-// app/catalog/[id]/page.tsx
-
 import type { Metadata } from "next";
 
 import {

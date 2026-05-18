@@ -1,5 +1,3 @@
-/* components/CarDetails/CarDetails.module.css */
-
 .car_details {
   padding: 0 16px;
   background: var(--badges);
@@ -117,4 +115,21 @@
   line-height: 1.25;
   font-weight: var(--fw-medium);
   color: var(--main);
+}
+
+.list_item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: var(--fz-16);
+  line-height: 1.25;
+  color: var(--main);
+}
+
+.icon {
+  flex-shrink: 0;
+
+  width: 16px;
+  height: 16px;
 }

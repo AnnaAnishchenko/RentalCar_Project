@@ -1,4 +1,3 @@
-// components/Pagination/Pagination.tsx
 "use client";
 
 import ReactPaginateModule from "react-paginate";

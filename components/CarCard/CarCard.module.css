@@ -1,5 +1,3 @@
-/* components/CarCard/CarCard.module.css */
-
 .car {
   display: flex;
   flex-direction: column;
@@ -43,7 +41,7 @@
 }
 
 .car_model {
-  color: var(--button);
+  color: var(--light-blue);
 }
 
 .car_price {

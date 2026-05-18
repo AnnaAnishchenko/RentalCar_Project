@@ -1,5 +1,3 @@
-//components/RentalForm/RentalForm.tsx
-
 "use client";
 
 import { Formik, Form, Field } from "formik";
@@ -26,15 +24,6 @@ const RentalForm = ({ carId }: Props) => {
           email: "",
           comment: "",
         }}
-        // onSubmit={(values, actions) => {
-        //   // console.log(values);
-        //   rentCar(values);
-
-        //   alert("Car successfully rented!");
-
-        //   actions.resetForm();
-        // }}
-
         onSubmit={async (values, actions) => {
           try {
             const response = await rentCar(carId, values);

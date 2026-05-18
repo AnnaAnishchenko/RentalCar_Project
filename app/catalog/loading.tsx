@@ -1,5 +1,3 @@
-//catalog/loading.tsx
-
 function Loading() {
   return <p>Loading...</p>;
 }

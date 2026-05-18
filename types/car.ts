@@ -1,5 +1,3 @@
-// types/car.ts
-
 export type Location = {
   country: string;
   city: string;
