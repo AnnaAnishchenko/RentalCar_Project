@@ -8,7 +8,6 @@ import "./globals.css";
 
 import Header from "../components/Header/Header";
 
-import QueryProvider from "../providers/QueryProvider";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 
 const inter = Inter({
@@ -38,13 +37,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${manrope.variable}`}>
-        <QueryProvider>
-          <TanStackProvider>
-            <Header />
+        <TanStackProvider>
+          <Header />
 
-            <main>{children}</main>
-          </TanStackProvider>
-        </QueryProvider>
+          <main>{children}</main>
+        </TanStackProvider>
       </body>
     </html>
   );

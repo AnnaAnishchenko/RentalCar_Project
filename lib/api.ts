@@ -24,6 +24,16 @@ export type FiltersResponse = {
   };
 };
 
+type RentalFormData = {
+  name: string;
+  email: string;
+  comment: string;
+};
+
+export type BookingResponse = {
+  message: string;
+};
+
 export const getCars = async ({
   pageParam = 1,
   brand,
@@ -66,6 +76,18 @@ export const getCarById = async (id: string): Promise<Car> => {
 
 export const getFilters = async (): Promise<FiltersResponse> => {
   const response = await api.get<FiltersResponse>("/cars/filters");
+
+  return response.data;
+};
+
+export const rentCar = async (
+  carId: string,
+  data: RentalFormData,
+): Promise<BookingResponse> => {
+  const response = await api.post<BookingResponse>(
+    `/cars/${carId}/booking-requests`,
+    data,
+  );
 
   return response.data;
 };

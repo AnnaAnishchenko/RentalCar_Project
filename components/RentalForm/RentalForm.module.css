@@ -21,7 +21,7 @@
   margin-bottom: 24px;
 
   font-family: var(--font-family);
-  font-weight: --fw-medium;
+  font-weight: var(--fw-medium);
   font-size: var(--fz-16);
   line-height: 1.25;
   color: var(--gray);

@@ -1,4 +1,7 @@
 // app/catalog/[id]/page.tsx
+
+import type { Metadata } from "next";
+
 import {
   QueryClient,
   HydrationBoundary,
@@ -14,6 +17,15 @@ type Props = {
     id: string;
   }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+
+  return {
+    title: `Car ${id} | RentalCar`,
+    description: "Detailed information about rental car",
+  };
+}
 
 const CarDetailsPage = async ({ params }: Props) => {
   const { id } = await params;

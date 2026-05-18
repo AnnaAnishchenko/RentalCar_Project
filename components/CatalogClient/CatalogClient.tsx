@@ -48,12 +48,17 @@ const CatalogClient = ({ brands, priceRange }: CatalogClientProps) => {
 
     initialPageParam: 1,
 
-    getNextPageParam: (lastPage, allPages) => {
-      if (lastPage.cars.length < 10) {
-        return undefined;
-      }
+    // getNextPageParam: (lastPage, allPages) => {
+    //   if (lastPage.cars.length < 10) {
+    //     return undefined;
+    //   }
 
-      return allPages.length + 1;
+    //   return allPages.length + 1;
+    // },
+    getNextPageParam: (lastPage) => {
+      return lastPage.currentPage < lastPage.totalPages
+        ? lastPage.currentPage + 1
+        : undefined;
     },
   });
 
@@ -89,7 +94,13 @@ const CatalogClient = ({ brands, priceRange }: CatalogClientProps) => {
         onClearFilters={handleClearFilters}
       />
 
-      <CarCatalog cars={cars} />
+      {/* <CarCatalog cars={cars} /> */}
+
+      {cars.length > 0 ? (
+        <CarCatalog cars={cars} />
+      ) : (
+        <p className={css.empty}>No cars found.</p>
+      )}
 
       {hasNextPage && (
         <button

@@ -1,4 +1,3 @@
-// This is a client component that handles errors in the catalog page.
 // catalog/error.tsx
 "use client";
 

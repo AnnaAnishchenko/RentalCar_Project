@@ -24,14 +24,14 @@ const CarDetails = ({ item }: Props) => {
             className={css.image}
           />
 
-          <RentalForm />
+          <RentalForm carId={item.id} />
         </div>
 
         <div className={css.right}>
           <div className={css.box}>
             <h2 className={css.title}>
               {item.brand} {item.model}, {item.year}
-              <span className={css.artical}>Artical:{item.stockNumber}</span>
+              <span className={css.article}>Article:{item.stockNumber}</span>
             </h2>
             <div className={css.location}>
               {item.location.city}, {item.location.country}
