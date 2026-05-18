@@ -1,0 +1,97 @@
+/* components/RentalForm/RentalForm.module.css */
+.wrapper {
+  border-radius: 16px;
+  padding: 32px;
+  width: 640px;
+  height: 424px;
+  background: var(--white);
+}
+
+.title {
+  margin-bottom: 8px;
+
+  font-family: var(--font-family);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fz-20);
+  line-height: 1.2;
+  color: var(--main);
+}
+
+.text {
+  margin-bottom: 24px;
+
+  font-family: var(--font-family);
+  font-weight: --fw-medium;
+  font-size: var(--fz-16);
+  line-height: 1.25;
+  color: var(--gray);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 576px;
+  height: 284px;
+}
+
+.input {
+  height: 48px;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 0 20px;
+
+  background-color: var(--inputs);
+
+  outline: none;
+
+  font-family: var(--font-family);
+  font-weight: var(--fw-medium);
+  font-size: var(--fz-16);
+  line-height: 1.25;
+  color: var(--gray);
+}
+
+.textarea {
+  height: 88px;
+
+  resize: none;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 12px 20px 56px;
+
+  background-color: var(--inputs);
+
+  font-size: var(--fz-16);
+
+  outline: none;
+}
+
+.button {
+  border-radius: 12px;
+  padding: 12px 99px;
+  width: 576px;
+  height: 44px;
+
+  background: var(--light-blue);
+
+  font-family: var(--font-family);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fz-16);
+  line-height: 1.25;
+  color: var(--white);
+
+  cursor: pointer;
+
+  transition: background-color 250ms ease;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--dark-blue);
+}

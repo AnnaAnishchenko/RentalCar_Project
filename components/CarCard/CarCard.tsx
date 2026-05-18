@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+
 import css from "./CarCard.module.css";
+
 import { Car } from "@/types/car";
 
 type Props = {

@@ -9,7 +9,7 @@ import "./globals.css";
 import Header from "../components/Header/Header";
 
 import QueryProvider from "../providers/QueryProvider";
-import Providers from "@/components/Providers/Providers";
+import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -39,11 +39,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${manrope.variable}`}>
         <QueryProvider>
-          <Providers>
+          <TanStackProvider>
             <Header />
 
             <main>{children}</main>
-          </Providers>
+          </TanStackProvider>
         </QueryProvider>
       </body>
     </html>

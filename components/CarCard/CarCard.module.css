@@ -79,7 +79,7 @@
 
   border-radius: 12px;
 
-  background-color: var(--button);
+  background-color: var(--light-blue);
 
   font-size: var(--fz-16);
   font-weight: var(--fw-semibold);
@@ -93,5 +93,5 @@
 
 .button:hover,
 .button:focus {
-  background-color: var(--button-hover);
+  background-color: var(--dark-blue);
 }

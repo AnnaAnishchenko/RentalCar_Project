@@ -1,0 +1,120 @@
+/* components/CarDetails/CarDetails.module.css */
+
+.car_details {
+  padding: 0 16px;
+  background: var(--badges);
+}
+.wrapper {
+  display: flex;
+  gap: 32px;
+
+  margin: 0 auto;
+  padding-top: 84px;
+  width: 1200px;
+  min-height: 968px;
+  min-height: 968px;
+}
+
+.left {
+  width: 640px;
+}
+
+.image {
+  object-fit: cover;
+
+  border-radius: 16px;
+  width: 640px;
+  height: 512px;
+  margin-bottom: 32px;
+}
+
+.right {
+  flex: 1;
+
+  border-radius: 16px;
+  padding: 32px 24px;
+
+  background: var(--white);
+}
+
+.title {
+  margin-bottom: 8px;
+
+  font-size: var(--fz-24);
+  font-weight: var(--fw-semibold);
+  line-height: 1.33;
+
+  color: var(--main);
+}
+
+.location {
+  margin-bottom: 4px;
+
+  font-family: var(--font-family);
+  font-weight: var(--fw-medium);
+  font-size: var(--fz-16);
+  line-height: 1.25;
+
+  color: var(--main);
+}
+.artical {
+  font-family: var(--font-family);
+  font-weight: var(--fw-medium);
+  font-size: var(--fz-16);
+  line-height: 1.25;
+  color: var(--gray);
+  padding-left: 16px;
+}
+
+.price {
+  margin-bottom: 16px;
+  font-family: var(--font-family);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fz-24);
+  line-height: 1.33;
+
+  color: var(--light-blue);
+}
+
+.description {
+  margin-bottom: 32px;
+  font-family: var(--font-family);
+  font-weight: var(--fw-medium);
+  font-size: var(--fz-16);
+  line-height: 1.25;
+
+  color: var(--main);
+}
+
+.box_section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.section {
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+  font-family: var(--font-family);
+
+  line-height: 1.2;
+  font-size: var(--fz-20);
+  font-weight: var(--fw-semibold);
+
+  color: var(--main);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.list li {
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: var(--fw-medium);
+  color: var(--main);
+}

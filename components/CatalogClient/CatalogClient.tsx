@@ -2,9 +2,11 @@
 "use client";
 
 import { useState } from "react";
+
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 import FilterForm, { FilterFormValues } from "../FilterForm/FilterForm";
+
 import CarCatalog from "../CarCatalog/CarCatalog";
 
 import { getCars } from "@/lib/api";
@@ -19,6 +21,7 @@ type CatalogClientProps = {
     max: number;
   };
 };
+
 const CatalogClient = ({ brands, priceRange }: CatalogClientProps) => {
   const [filters, setFilters] = useState<FilterFormValues>({
     brand: "",
@@ -27,26 +30,32 @@ const CatalogClient = ({ brands, priceRange }: CatalogClientProps) => {
     maxMileage: "",
   });
 
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    useInfiniteQuery({
-      queryKey: ["cars", filters],
+  const {
+    data,
+    isLoading,
+    isError,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery({
+    queryKey: ["cars", filters],
 
-      queryFn: ({ pageParam = 1 }) =>
-        getCars({
-          pageParam,
-          ...filters,
-        }),
+    queryFn: ({ pageParam }) =>
+      getCars({
+        pageParam,
+        ...filters,
+      }),
 
-      initialPageParam: 1,
+    initialPageParam: 1,
 
-      getNextPageParam: (lastPage) => {
-        if (lastPage.currentPage < lastPage.totalPages) {
-          return lastPage.currentPage + 1;
-        }
-
+    getNextPageParam: (lastPage, allPages) => {
+      if (lastPage.cars.length < 10) {
         return undefined;
-      },
-    });
+      }
+
+      return allPages.length + 1;
+    },
+  });
 
   const cars = data?.pages.flatMap((page) => page.cars) ?? [];
 
@@ -63,8 +72,16 @@ const CatalogClient = ({ brands, priceRange }: CatalogClientProps) => {
     });
   };
 
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (isError) {
+    return <p>Error loading cars</p>;
+  }
+
   return (
-    <section className={`${css.catalog} ${css.container}`}>
+    <section className={css.catalog}>
       <FilterForm
         brands={brands}
         priceRange={priceRange}
@@ -77,6 +94,7 @@ const CatalogClient = ({ brands, priceRange }: CatalogClientProps) => {
       {hasNextPage && (
         <button
           type="button"
+          className={css.loadMoreBtn}
           onClick={() => fetchNextPage()}
           disabled={isFetchingNextPage}
         >

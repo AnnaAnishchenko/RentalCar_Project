@@ -11,7 +11,7 @@ type ProvidersProps = {
   children: ReactNode;
 };
 
-export default function Providers({ children }: ProvidersProps) {
+const TanStackProvider = ({ children }: ProvidersProps) => {
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -26,4 +26,5 @@ export default function Providers({ children }: ProvidersProps) {
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
-}
+};
+export default TanStackProvider;
