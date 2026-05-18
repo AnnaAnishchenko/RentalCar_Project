@@ -43,6 +43,7 @@ export const getCars = async ({
 }: GetCarsParams = {}): Promise<CarsResponse> => {
   const params: Record<string, string | number> = {
     page: pageParam,
+    perPage: 12,
   };
 
   if (brand?.trim()) {
@@ -50,15 +51,23 @@ export const getCars = async ({
   }
 
   if (rentalPrice?.trim()) {
-    params.rentalPrice = rentalPrice;
+    params.price = Number(rentalPrice);
   }
 
-  if (minMileage?.trim()) {
-    params.minMileage = minMileage;
+  // if (minMileage?.trim()) {
+  //   params.minMileage = Number(minMileage);
+  // }
+
+  // if (maxMileage?.trim()) {
+  //   params.maxMileage = Number(maxMileage);
+  // }
+
+  if (minMileage && !isNaN(Number(minMileage))) {
+    params.minMileage = parseInt(minMileage, 10);
   }
 
-  if (maxMileage?.trim()) {
-    params.maxMileage = maxMileage;
+  if (maxMileage && !isNaN(Number(maxMileage))) {
+    params.maxMileage = parseInt(maxMileage, 10);
   }
 
   const response = await api.get<CarsResponse>("/cars", {

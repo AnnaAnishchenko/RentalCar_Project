@@ -29,7 +29,6 @@ const CarCard = ({ item }: Props) => {
             {item.year}
           </div>
 
-          {/* <div className={css.car_price}>${item.rentalPrice}</div> */}
           <div className={css.car_price}>${item.rentalPrice}</div>
         </div>
 

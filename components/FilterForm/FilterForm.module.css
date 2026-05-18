@@ -1,18 +1,19 @@
 /* components/FilterForm/FilterForm.module.css */
+
 .FilterForm {
-  width: 100%;
   display: flex;
   justify-content: center;
-  margin: 84px auto 60px;
-  width: 924px;
   gap: 16px;
+
+  margin: 84px auto 60px;
+
+  align-items: flex-start;
 }
+
 .form {
   display: flex;
   align-items: flex-end;
-  justify-content: center;
   gap: 16px;
-  width: 752px;
 }
 
 .fieldWrapper {
@@ -33,11 +34,11 @@
   width: 204px;
   height: 44px;
 
-  border: none;
-  outline: none;
-  border-radius: 12px;
+  padding: 0 16px;
 
-  padding: 12px 16px;
+  border: none;
+
+  border-radius: 12px;
 
   background-color: var(--white);
 
@@ -46,7 +47,15 @@
   line-height: 1.25;
   color: var(--main);
 
+  outline: none;
   cursor: pointer;
+
+  appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cpath stroke='%23101828' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+  background-position: right 16px center;
 }
 
 .select:focus {
@@ -55,28 +64,27 @@
 
 .mileageGroup {
   display: flex;
-  align-items: center;
 }
 
 .mileageInput {
-  border-right: 1px solid var(--gray-light);
-  border-radius: 12px 0 0 12px;
   width: 160px;
   height: 44px;
-  background-color: var(--white);
 
+  border: none;
   outline: none;
-
   padding: 0 16px;
 
   font-size: var(--fz-16);
   font-weight: var(--fw-medium);
   line-height: 1.25;
   color: var(--main);
+
+  background-color: var(--white);
 }
 
 .mileageInput:first-child {
   border-radius: 12px 0 0 12px;
+  border-right: 1px solid var(--gray-light);
 }
 
 .mileageInput:last-child {
@@ -90,6 +98,7 @@
 .actions {
   display: flex;
   flex-direction: column;
+  padding-top: 24px;
   gap: 8px;
 }
 
@@ -122,8 +131,15 @@
   background-color: transparent;
 
   font-size: var(--fz-16);
-  line-height: 1.43;
+  line-height: 1.25;
   color: var(--gray);
 
   cursor: pointer;
+
+  transition: color 250ms ease;
+}
+
+.clearButton:hover,
+.clearButton:focus {
+  color: var(--dark-blue);
 }
