@@ -1,8 +1,9 @@
 .home {
   width: 100%;
-  max-width: 1440px;
+  min-height: 100vh;
+
   margin: 0 auto;
-  height: 700px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,7 +11,9 @@
 
   text-align: center;
 
-  background-image: url("/images/hero-car.jpg");
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/images/hero-car.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

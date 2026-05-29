@@ -5,12 +5,13 @@ import { Car } from "@/types/car";
 import RentalForm from "../RentalForm/RentalForm";
 
 import css from "./CarDetails.module.css";
-import { FiCheckCircle } from "react-icons/fi";
+import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
 import { IoCarSportSharp } from "react-icons/io5";
 import { GiGasPump } from "react-icons/gi";
 import { BsGear } from "react-icons/bs";
 import { PiRoadHorizon } from "react-icons/pi";
+import { CiLocationOn } from "react-icons/ci";
 
 type Props = {
   item: Car;
@@ -39,6 +40,7 @@ const CarDetails = ({ item }: Props) => {
               <span className={css.article}>Article:{item.stockNumber}</span>
             </h2>
             <div className={css.location}>
+              <CiLocationOn className={css.icon} />
               {item.location.city}, {item.location.country}
             </div>
             <div className={css.price}>${item.rentalPrice}</div>
@@ -52,7 +54,7 @@ const CarDetails = ({ item }: Props) => {
               <ul className={css.list}>
                 {item.rentalConditions.map((condition) => (
                   <li key={condition} className={css.list_item}>
-                    <FiCheckCircle className={css.icon} />
+                    <IoCheckmarkCircleOutline className={css.icon} />
                     {condition}
                   </li>
                 ))}
@@ -84,19 +86,18 @@ const CarDetails = ({ item }: Props) => {
                 </li>
               </ul>
             </div>
-          </div>
+            <div className={css.section}>
+              <h3 className={css.subtitle}>Features</h3>
 
-          <div className={css.section}>
-            <h3 className={css.subtitle}>Features</h3>
-
-            <ul className={css.list}>
-              {item.features.map((feature) => (
-                <li key={feature} className={css.list_item}>
-                  <FiCheckCircle className={css.icon} />
-                  {feature}{" "}
-                </li>
-              ))}
-            </ul>
+              <ul className={css.list}>
+                {item.features.map((feature) => (
+                  <li key={feature} className={css.list_item}>
+                    <IoCheckmarkCircleOutline className={css.icon} />
+                    {feature}{" "}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>

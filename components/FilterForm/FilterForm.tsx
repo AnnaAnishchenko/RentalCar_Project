@@ -1,6 +1,8 @@
 "use client";
 
-import { Formik, Form, Field, FormikHelpers } from "formik";
+import { Formik, Form, Field, FormikHelpers, ErrorMessage } from "formik";
+import { useRouter, useSearchParams } from "next/navigation";
+
 import css from "./FilterForm.module.css";
 
 export interface FilterFormValues {
@@ -23,19 +25,22 @@ type FilterFormProps = {
   onClearFilters: () => void;
 };
 
-const initialValues: FilterFormValues = {
-  brand: "",
-  rentalPrice: "",
-  minMileage: "",
-  maxMileage: "",
-};
-
 const FilterForm = ({
   brands,
   priceRange,
   onSubmit,
   onClearFilters,
 }: FilterFormProps) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const initialValues: FilterFormValues = {
+    brand: searchParams.get("brand") || "",
+    rentalPrice: searchParams.get("rentalPrice") || "",
+    minMileage: searchParams.get("minMileage") || "",
+    maxMileage: searchParams.get("maxMileage") || "",
+  };
+
   const prices: number[] = [];
 
   for (let i = priceRange.min; i <= priceRange.max; i += 10) {
@@ -51,12 +56,37 @@ const FilterForm = ({
       values.maxMileage &&
       Number(values.minMileage) > Number(values.maxMileage)
     ) {
-      alert("Minimum mileage cannot be greater than maximum mileage");
-
+      actions.setFieldError(
+        "maxMileage",
+        "Maximum mileage must be greater than minimum mileage",
+      );
       actions.setSubmitting(false);
-
       return;
     }
+
+    const params = new URLSearchParams(searchParams);
+
+    if (values.brand) {
+      params.set("brand", values.brand);
+    } else {
+      params.delete("brand");
+    }
+    if (values.rentalPrice) {
+      params.set("rentalPrice", values.rentalPrice);
+    } else {
+      params.delete("rentalPrice");
+    }
+    if (values.minMileage) {
+      params.set("minMileage", values.minMileage);
+    } else {
+      params.delete("minMileage");
+    }
+    if (values.maxMileage) {
+      params.set("maxMileage", values.maxMileage);
+    } else {
+      params.delete("maxMileage");
+    }
+    router.push(`/catalog?${params.toString()}`);
 
     onSubmit(values);
 
@@ -64,7 +94,11 @@ const FilterForm = ({
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      enableReinitialize
+    >
       {({ resetForm }) => (
         <Form className={css.FilterForm}>
           <div className={css.form}>
@@ -123,6 +157,12 @@ const FilterForm = ({
                   className={css.mileageInput}
                 />
               </div>
+
+              <ErrorMessage
+                name="maxMileage"
+                component="div"
+                className={css.error}
+              />
             </div>
           </div>
 
@@ -136,6 +176,8 @@ const FilterForm = ({
               className={css.clearButton}
               onClick={() => {
                 resetForm();
+
+                router.push("/catalog");
 
                 onClearFilters();
               }}

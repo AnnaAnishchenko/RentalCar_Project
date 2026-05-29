@@ -1,6 +1,10 @@
 .car_details {
   padding: 0 16px;
   background: var(--badges);
+
+  width: 100%;
+
+  min-height: 100vh;
 }
 .wrapper {
   display: flex;
@@ -37,7 +41,7 @@
 
 .title {
   margin-bottom: 8px;
-
+  gap: 4px;
   font-size: var(--fz-24);
   font-weight: var(--fw-semibold);
   line-height: 1.33;
@@ -46,6 +50,8 @@
 }
 
 .location {
+  display: flex;
+  gap: 4px;
   margin-bottom: 4px;
 
   font-family: var(--font-family);
@@ -89,8 +95,9 @@
   flex-direction: column;
   gap: 24px;
 }
-.section {
-  margin-bottom: 24px;
+.section:not(:last-child) {
+  border-bottom: 1px solid var(--gray-light);
+  padding-bottom: 24px;
 }
 
 .subtitle {

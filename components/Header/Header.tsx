@@ -1,8 +1,13 @@
+"use client";
+
 import Logo from "../Logo/Logo";
 import css from "./Header.module.css";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const pathname = usePathname();
+
   return (
     <header className={css.header}>
       <Link href="/" className={css.logo} aria-label="RentalCar logo">
@@ -10,10 +15,10 @@ const Header = () => {
       </Link>
       <nav className={css.navigation}>
         <ul className={css.menu}>
-          <li className={css.link}>
+          <li className={pathname === "/" ? css.active : css.link}>
             <Link href="/">Home</Link>
           </li>
-          <li className={css.link}>
+          <li className={pathname === "/catalog" ? css.active : css.link}>
             <Link href="/catalog">Catalog</Link>
           </li>
         </ul>

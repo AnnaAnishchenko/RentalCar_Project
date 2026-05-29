@@ -44,3 +44,7 @@
 .link:hover {
   color: var(--light-blue);
 }
+
+.active {
+  color: var(--light-blue);
+}
