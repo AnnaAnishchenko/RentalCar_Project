@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 
 import "modern-normalize";
-import "./globals.css";
+import "../styles/globals.css";
 
 import Header from "../components/Header/Header";
 
