@@ -1,6 +1,8 @@
 "use client";
 
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { toast } from "react-hot-toast";
 
 import css from "./RentalForm.module.css";
 import { rentCar } from "@/lib/api";
@@ -8,6 +10,17 @@ import { rentCar } from "@/lib/api";
 type Props = {
   carId: string;
 };
+
+const validationSchema = Yup.object({
+  name: Yup.string().trim().required("Name is required"),
+
+  email: Yup.string()
+    .trim()
+    .email("Invalid email")
+    .required("Email is required"),
+
+  comment: Yup.string(),
+});
 
 const RentalForm = ({ carId }: Props) => {
   return (
@@ -24,44 +37,52 @@ const RentalForm = ({ carId }: Props) => {
           email: "",
           comment: "",
         }}
+        validationSchema={validationSchema}
         onSubmit={async (values, actions) => {
           try {
             const response = await rentCar(carId, values);
 
-            alert(response.message);
+            toast.success(response.message);
 
             actions.resetForm();
-          } catch (error) {
-            alert("Something went wrong");
+          } catch {
+            toast.error("Something went wrong");
           }
         }}
       >
-        <Form className={css.form}>
-          <Field
-            type="text"
-            name="name"
-            placeholder="Name*"
-            className={css.input}
-          />
+        {({ isValid, dirty }) => (
+          <Form className={css.form}>
+            <Field
+              type="text"
+              name="name"
+              placeholder="Name*"
+              className={css.input}
+            />
+            <ErrorMessage name="name" component="div" className={css.error} />
+            <Field
+              type="email"
+              name="email"
+              placeholder="Email*"
+              className={css.input}
+            />
+            <ErrorMessage name="email" component="div" className={css.error} />
 
-          <Field
-            type="email"
-            name="email"
-            placeholder="Email*"
-            className={css.input}
-          />
+            <Field
+              as="textarea"
+              name="comment"
+              placeholder="Comment"
+              className={css.textarea}
+            />
 
-          <Field
-            as="textarea"
-            name="comment"
-            placeholder="Comment"
-            className={css.textarea}
-          />
-
-          <button type="submit" className={css.button}>
-            Send
-          </button>
-        </Form>
+            <button
+              type="submit"
+              className={css.button}
+              disabled={!isValid || !dirty}
+            >
+              Send
+            </button>
+          </Form>
+        )}
       </Formik>
     </div>
   );

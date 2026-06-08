@@ -94,3 +94,10 @@
 .button:focus {
   background-color: var(--dark-blue);
 }
+
+.error {
+  color: #d84343;
+  font-size: 12px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}

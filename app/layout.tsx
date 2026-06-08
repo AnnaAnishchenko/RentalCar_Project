@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 
+import { Toaster } from "react-hot-toast";
+
 import "modern-normalize";
 import "../styles/globals.css";
 
@@ -44,6 +46,7 @@ export default function RootLayout({
           <Header />
 
           <main>{children}</main>
+          <Toaster position="top-right" />
         </TanStackProvider>
       </body>
     </html>
