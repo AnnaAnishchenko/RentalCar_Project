@@ -11,6 +11,7 @@ import CarCatalog from "../CarCatalog/CarCatalog";
 import { getCars } from "@/lib/api";
 
 import css from "./CatalogClient.module.css";
+import CatalogLoader from "../CatalogLoader/CatalogLoader";
 
 type CatalogClientProps = {
   brands: string[];
@@ -70,7 +71,7 @@ const CatalogClient = ({ brands, priceRange }: CatalogClientProps) => {
   };
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <CatalogLoader />;
   }
 
   if (isError) {
@@ -99,7 +100,7 @@ const CatalogClient = ({ brands, priceRange }: CatalogClientProps) => {
           onClick={() => fetchNextPage()}
           disabled={isFetchingNextPage}
         >
-          {isFetchingNextPage ? "Loading..." : "Load More"}
+          {isFetchingNextPage && <CatalogLoader />}
         </button>
       )}
     </section>
