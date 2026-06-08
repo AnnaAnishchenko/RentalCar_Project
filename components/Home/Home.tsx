@@ -1,5 +1,5 @@
+import Button from "../Button/Button";
 import css from "./Home.module.css";
-import Link from "next/link";
 
 const Home = () => {
   return (
@@ -8,9 +8,10 @@ const Home = () => {
       <p className={css.text}>
         Reliable and budget-friendly rentals for any journey
       </p>
-      <Link href="/catalog" className={css.button}>
+
+      <Button href="/catalog" className={css.heroButton}>
         View Catalog
-      </Link>
+      </Button>
     </section>
   );
 };

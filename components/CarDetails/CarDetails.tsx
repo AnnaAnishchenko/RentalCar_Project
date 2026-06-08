@@ -82,7 +82,7 @@ const CarDetails = ({ item }: Props) => {
                 </li>
                 <li className={css.list_item}>
                   <PiRoadHorizon className={css.icon} />
-                  Mileage: {item.mileage}km
+                  Mileage: {item.mileage} <span> km</span>
                 </li>
               </ul>
             </div>

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import css from "./CarCard.module.css";
 
 import { Car } from "@/types/car";
+import Button from "../Button/Button";
 
 type Props = {
   item: Car;
@@ -39,14 +39,13 @@ const CarCard = ({ item }: Props) => {
         </p>
       </div>
 
-      <Link
+      <Button
         href={`/catalog/${item.id}`}
-        className={css.button}
         target="_blank"
-        rel="noopener noreferrer"
+        className={css.readMoreBtn}
       >
         Read more
-      </Link>
+      </Button>
     </article>
   );
 };

@@ -1,0 +1,55 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 12px;
+
+  font-size: var(--fz-16);
+  font-weight: var(--fw-semibold);
+  line-height: 1.25;
+
+  cursor: pointer;
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease;
+
+  text-decoration: none;
+}
+
+/* Primary */
+
+.primary {
+  background-color: var(--light-blue);
+  color: var(--white);
+}
+
+.primary:hover,
+.primary:focus {
+  background-color: var(--dark-blue);
+}
+
+/* Outline */
+
+.outline {
+  background-color: transparent;
+
+  border: 1px solid var(--light-blue);
+
+  color: var(--main);
+}
+
+/* Text */
+
+.text {
+  background: transparent;
+  color: var(--gray);
+}
+
+.text:hover,
+.text:focus {
+  color: var(--dark-blue);
+}

@@ -71,33 +71,14 @@
   outline: none;
 }
 
-.button {
-  border-radius: 12px;
-  padding: 12px 99px;
-  width: 576px;
-  height: 44px;
-
-  background: var(--light-blue);
-
-  font-family: var(--font-family);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fz-16);
-  line-height: 1.25;
-  color: var(--white);
-
-  cursor: pointer;
-
-  transition: background-color 250ms ease;
-}
-
-.button:hover,
-.button:focus {
-  background-color: var(--dark-blue);
-}
-
 .error {
   color: #d84343;
   font-size: 12px;
   margin-top: 4px;
   margin-bottom: 8px;
+}
+
+.sendButton {
+  width: 576px;
+  height: 44px;
 }

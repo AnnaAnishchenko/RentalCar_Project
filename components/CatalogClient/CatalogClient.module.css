@@ -8,23 +8,13 @@
 }
 
 .loadMoreBtn {
-  display: block;
-
-  border: 1px solid var(--light-blue);
-  border-radius: 12px;
-  padding: 12px 38px;
-  min-width: 156px;
+  width: 156px;
   height: 44px;
-
-  font-family: var(--font-family);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fz-16);
-  line-height: 1.25;
-  color: var(--main);
-
   margin: 48px auto 104px;
+}
 
-  background-color: transparent;
-
-  cursor: pointer;
+.outline:hover,
+.outline:focus {
+  border-color: var(--dark-blue);
+  color: var(--dark-blue);
 }

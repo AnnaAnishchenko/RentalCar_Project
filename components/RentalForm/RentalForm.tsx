@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 
 import css from "./RentalForm.module.css";
 import { rentCar } from "@/lib/api";
+import Button from "../Button/Button";
 
 type Props = {
   carId: string;
@@ -74,13 +75,14 @@ const RentalForm = ({ carId }: Props) => {
               className={css.textarea}
             />
 
-            <button
+            <Button
               type="submit"
-              className={css.button}
+              variant="primary"
+              className={css.sendButton}
               disabled={!isValid || !dirty}
             >
               Send
-            </button>
+            </Button>
           </Form>
         )}
       </Formik>

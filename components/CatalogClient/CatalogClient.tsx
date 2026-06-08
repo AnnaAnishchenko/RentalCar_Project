@@ -13,6 +13,7 @@ import { getCars } from "@/lib/api";
 
 import css from "./CatalogClient.module.css";
 import CatalogLoader from "../CatalogLoader/CatalogLoader";
+import Button from "../Button/Button";
 
 type CatalogClientProps = {
   brands: string[];
@@ -97,14 +98,14 @@ const CatalogClient = ({ brands, priceRange }: CatalogClientProps) => {
       )}
 
       {hasNextPage && (
-        <button
-          type="button"
+        <Button
+          variant="outline"
           className={css.loadMoreBtn}
           onClick={() => fetchNextPage()}
           disabled={isFetchingNextPage}
         >
-          {isFetchingNextPage && <CatalogLoader />}
-        </button>
+          {isFetchingNextPage ? <CatalogLoader /> : "Load More"}
+        </Button>
       )}
     </section>
   );

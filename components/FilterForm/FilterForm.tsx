@@ -7,6 +7,7 @@ import Select from "react-select";
 import { customSelectStyles, SelectOption } from "@/styles/selectStyles";
 
 import css from "./FilterForm.module.css";
+import Button from "../Button/Button";
 
 export interface FilterFormValues {
   brand: string;
@@ -185,23 +186,25 @@ const FilterForm = ({
           </div>
 
           <div className={css.actions}>
-            <button type="submit" className={css.button}>
+            <Button
+              type="submit"
+              variant="primary"
+              className={css.searchButton}
+            >
               Search
-            </button>
+            </Button>
 
-            <button
-              type="button"
+            <Button
+              variant="text"
               className={css.clearButton}
               onClick={() => {
                 resetForm();
-
                 router.push("/catalog");
-
                 onClearFilters();
               }}
             >
               Clear filters
-            </button>
+            </Button>
           </div>
         </Form>
       )}
