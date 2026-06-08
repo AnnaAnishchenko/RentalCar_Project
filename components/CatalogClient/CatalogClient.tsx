@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { useSearchParams } from "next/navigation";
 
 import FilterForm, { FilterFormValues } from "../FilterForm/FilterForm";
 
@@ -23,11 +24,13 @@ type CatalogClientProps = {
 };
 
 const CatalogClient = ({ brands, priceRange }: CatalogClientProps) => {
+  const searchParams = useSearchParams();
+
   const [filters, setFilters] = useState<FilterFormValues>({
-    brand: "",
-    rentalPrice: "",
-    minMileage: "",
-    maxMileage: "",
+    brand: searchParams.get("brand") || "",
+    rentalPrice: searchParams.get("rentalPrice") || "",
+    minMileage: searchParams.get("minMileage") || "",
+    maxMileage: searchParams.get("maxMileage") || "",
   });
 
   const {
