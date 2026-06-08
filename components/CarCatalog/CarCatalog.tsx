@@ -8,13 +8,13 @@ type Props = {
 
 const CarCatalog = ({ cars }: Props) => {
   return (
-    <div className={css.car_catalog}>
+    <section className={css.car_catalog}>
       <ul className={css.catalog}>
         {cars.map((car) => (
           <CarCard key={car.id} item={car} />
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

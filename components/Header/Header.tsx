@@ -13,7 +13,7 @@ const Header = () => {
       <Link href="/" className={css.logo} aria-label="RentalCar logo">
         <Logo />
       </Link>
-      <nav className={css.navigation}>
+      <nav className={css.navigation} aria-label="Main navigation">
         <ul className={css.menu}>
           <li className={pathname === "/" ? css.active : css.link}>
             <Link href="/">Home</Link>

@@ -19,7 +19,7 @@ type Props = {
 
 const CarDetails = ({ item }: Props) => {
   return (
-    <div className={css.car_details}>
+    <section className={css.car_details}>
       <section className={css.wrapper}>
         <div className={css.left}>
           <Image
@@ -101,7 +101,7 @@ const CarDetails = ({ item }: Props) => {
           </div>
         </div>
       </section>
-    </div>
+    </section>
   );
 };
 

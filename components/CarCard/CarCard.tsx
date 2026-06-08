@@ -11,42 +11,45 @@ type Props = {
 
 const CarCard = ({ item }: Props) => {
   return (
-    <article className={css.car}>
-      <Image
-        className={css.car_image}
-        src={item.img}
-        alt={`${item.brand} ${item.model}`}
-        width={244}
-        height={268}
-      />
+    <li>
+      <article className={css.car}>
+        <Image
+          className={css.car_image}
+          src={item.img}
+          alt={`${item.brand} ${item.model}`}
+          width={244}
+          height={268}
+        />
 
-      <div className={css.car_box}>
-        <div className={css.car_brand}>
-          {item.brand} <span className={css.car_model}>{item.model}</span>,{" "}
-          {item.year}
+        <div className={css.car_box}>
+          <div className={css.car_brand}>
+            {item.brand} <span className={css.car_model}>{item.model}</span>,{" "}
+            {item.year}
+          </div>
+
+          <p className={css.car_price}>${item.rentalPrice}</p>
         </div>
 
-        <p className={css.car_price}>${item.rentalPrice}</p>
-      </div>
+        <div className={css.car_description}>
+          <p className={css.car_text}>
+            {item.location.city} | {item.location.country} |{" "}
+            {item.rentalCompany}
+          </p>
 
-      <div className={css.car_description}>
-        <p className={css.car_text}>
-          {item.location.city} | {item.location.country} | {item.rentalCompany}
-        </p>
+          <p className={css.car_text}>
+            {item.type} | {item.mileage} km
+          </p>
+        </div>
 
-        <p className={css.car_text}>
-          {item.type} | {item.mileage} km
-        </p>
-      </div>
-
-      <Button
-        href={`/catalog/${item.id}`}
-        target="_blank"
-        className={css.readMoreBtn}
-      >
-        Read more
-      </Button>
-    </article>
+        <Button
+          href={`/catalog/${item.id}`}
+          target="_blank"
+          className={css.readMoreBtn}
+        >
+          Read more
+        </Button>
+      </article>
+    </li>
   );
 };
 
